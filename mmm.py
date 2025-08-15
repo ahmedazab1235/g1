@@ -5,10 +5,12 @@ from transformers import pipeline
 st.title("text classification App")
 
 # Load the classification pipeline with the specified model
-classifier = pipeline('text-classification', model='Ammar-alhaj-ali/arabic-MARBERT-sentiment')
+classifier = pipeline("text-classification", model="tabularisai/multilingual-sentiment-analysis")
 
 
-sentence = st.text_input("انا احبك", "انا احبك")
+
+
+sentence = st.text_input("I love this product! It's amazing and works perfectly.", "I love this product! It's amazing and works perfectly.")
 result = classifier(sentence)
 
 st.write(result)
