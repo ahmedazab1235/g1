@@ -8,7 +8,7 @@ st.title("text classification App")
 classifier = pipeline("text-classification", model="yangheng/deberta-v3-base-absa-v1.1")
 
 
-sentence = st.text_input("I love this product! It's amazing and works perfectly.", "")
+sentence = st.text_input("", " love this product!")
 result = classifier(sentence)
 
 st.write(result)
