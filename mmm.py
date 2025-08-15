@@ -1,22 +1,12 @@
 import streamlit as st
-import pandas as pd
+from transformers import pipeline
 
 # Title
-st.title("Hello World App")
+st.title("text classification App")
 
-st.write("This is a simple Streamlit app that displays a greeting message.")
-age = st.slider("Select your age:", 0, 100, 25)
-
-
-name = st.text_input("Enter your name:", "")
+sentence = st.text_input("I love this product! It's amazing and works perfectly.", "")
+result = pipe(sentence)
 
 if st.button("Submit"):
-    st.write(f"Hello, {name} ! You selected age: {age}")
-
-df = pd.DataFrame({
-    "Name": ["ahmed", "essam", "azab"],
-    "Age": [25, 30, 35],
-    "City": ["New York", "Los Angeles", "Chicago"]
-})
-
-st.dataframe(df)
+    st.write(result[0]['label'])
+    st.write(result[0]['score'])
