@@ -5,11 +5,10 @@ from transformers import pipeline
 st.title("text classification App")
 
 # Load the classification pipeline with the specified model
-pipe = pipeline("text-classification", model="tabularisai/multilingual-sentiment-analysis")
+classifier = pipeline("text-classification", model="yangheng/deberta-v3-base-absa-v1.1")
+
 
 sentence = st.text_input("I love this product! It's amazing and works perfectly.", "")
-result = pipe(sentence)
+result = classifier(sentence)
 
-if st.button("Submit"):
-    st.write(result[0]['label'])
-    st.write(result[0]['score'])
+st.write(result)
